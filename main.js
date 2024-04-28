@@ -17,7 +17,7 @@ function updateTotal () {
 function addExpense () {
     // Get the value entered in the expense input field 
     const expenseAmount = parseFloat(expensesInput.value); 
-};
+
 
 // Check if the entered value is valid
 if (isNaN(expenseAmount) || expenseAmount <= 0 ) {
@@ -40,5 +40,7 @@ expensesList.appendChild(expenseItem);
 
 // Clear the input field for the next value
 expensesInput.value = ''; 
+
+};
 
 addExpenseBtn.addEventListener('click', addExpense); 

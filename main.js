@@ -18,9 +18,12 @@ function addExpense () {
     // Get the value entered in the expense input field 
     const expenseAmount = parseFloat(expensesInput.value); 
 
+    // Get the selected date value
+    const expenseDate = document.getElementById('date').value;
+<div></div>
 
 // Check if the entered value is valid
-if (isNaN(expenseAmount) || expenseAmount <= 0 ) {
+if (isNaN(expenseAmount) || expenseAmount <= 0 || !expenseDate) {
     alert('Please enter a valid amount');
     return; 
 }
@@ -35,8 +38,8 @@ updateTotal();
 const expenseItem = document.createElement('li');
 expenseItem.textContent = `$${expenseAmount.toFixed(2)}`; 
 
-// Append the new item to the list
-expensesList.appendChild(expenseItem); 
+// Prepend the new item to the beginning of the list
+expensesList.insertBefore(expenseItem, expensesList.firstChild); 
 
 // Clear the input field for the next value
 expensesInput.value = ''; 

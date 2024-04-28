@@ -13,6 +13,15 @@ function updateTotal () {
     totalExpenses.textContent = `Total expenses: ${total.toFixed(2)}`;
 }; 
 
+// Function to format date as "mm/dd/yy"
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const month = date.getMonth() + 1; // Months are zero-based
+    const day = date.getDate();
+    const year = date.getFullYear().toString().slice(-2); // Get last two digits of year
+    return `${month}/${day}/${year}`;
+  };
+
 // Function to handle adding an expense
 function addExpense () {
     // Get the value entered in the expense input field 
@@ -20,7 +29,6 @@ function addExpense () {
 
     // Get the selected date value
     const expenseDate = document.getElementById('date').value;
-<div></div>
 
 // Check if the entered value is valid
 if (isNaN(expenseAmount) || expenseAmount <= 0 || !expenseDate) {
@@ -36,14 +44,17 @@ updateTotal();
 
 // Create a new list item to disply the added expense
 const expenseItem = document.createElement('li');
-expenseItem.textContent = `$${expenseAmount.toFixed(2)}`; 
+expenseItem.textContent = `$${expenseAmount.toFixed(2)}-${expenseDate}`; 
 
 // Prepend the new item to the beginning of the list
 expensesList.insertBefore(expenseItem, expensesList.firstChild); 
 
 // Clear the input field for the next value
 expensesInput.value = ''; 
+document.getElementById('date').value = ""; 
+
 
 };
+
 
 addExpenseBtn.addEventListener('click', addExpense); 

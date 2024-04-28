@@ -15,12 +15,12 @@ function updateTotal () {
 
 // Function to format date as "mm/dd/yy"
 function formatDate(dateString) {
-    const date = new Date(dateString);
-    const month = date.getMonth() + 1; // Months are zero-based
-    const day = date.getDate();
-    const year = date.getFullYear().toString().slice(-2); // Get last two digits of year
-    return `${month}/${day}/${year}`;
-  };
+    // Split the date string into its components
+    const [year, month, day] = dateString.split('-');
+
+    // Format the date components as "mm/dd/yy"
+    return `${month}/${day}/${year.slice(-2)}`;
+}
 
 // Function to handle adding an expense
 function addExpense () {
@@ -42,9 +42,12 @@ total += expenseAmount;
 // Update the UI to reflect the new total
 updateTotal();
 
+// Format the date
+const formattedDate = formatDate(expenseDate);
+
 // Create a new list item to disply the added expense
 const expenseItem = document.createElement('li');
-expenseItem.textContent = `$${expenseAmount.toFixed(2)}-${expenseDate}`; 
+expenseItem.textContent = `$${expenseAmount.toFixed(2)} - ${expenseDate}`; 
 
 // Prepend the new item to the beginning of the list
 expensesList.insertBefore(expenseItem, expensesList.firstChild); 
@@ -52,7 +55,6 @@ expensesList.insertBefore(expenseItem, expensesList.firstChild);
 // Clear the input field for the next value
 expensesInput.value = ''; 
 document.getElementById('date').value = ""; 
-
 
 };
 

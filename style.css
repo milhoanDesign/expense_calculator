@@ -23,9 +23,11 @@ body {
   }
   
   input[type="number"] {
-    width: calc(100% - 10px);
+    /* width: calc(100% - 10px); */
+    width: 100%;
     padding: 8px;
     margin-bottom: 10px;
+    box-sizing: border-box;
   }
   
   button {
@@ -53,6 +55,9 @@ body {
   
   #expensesList li {
     margin-bottom: 5px;
+    list-style: none;
+    color: blueviolet;
+    font-weight: 600;
   }
   
   #totalExpenses {

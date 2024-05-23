@@ -38,6 +38,13 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    margin-bottom: 1rem;
+  }
+
+  button#clearExpenses {
+    background-color: #7c7c7c;
+    color: #fff;
+
   }
   
   button:hover {
@@ -56,7 +63,7 @@ body {
   #expensesList li {
     margin-bottom: 5px;
     list-style: none;
-    color: blueviolet;
+    color: #737373;
     font-weight: 600;
   }
   

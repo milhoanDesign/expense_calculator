@@ -10,7 +10,7 @@ let total = 0;
 
 // Function to update the UI with total expenses
 function updateTotal () {
-    totalExpenses.textContent = `Total expenses: ${total.toFixed(2)}`;
+    totalExpenses.textContent = `Total expenses: $${total.toFixed(2)}`;
 }; 
 
 // Function to format date as "mm/dd/yy"
@@ -18,7 +18,7 @@ function formatDate(dateString) {
     // Split the date string into its components
     const [year, month, day] = dateString.split('-');
 
-    // Format the date components as "mm/dd/yy"
+    // Format the date components as "MM-DD-YY"
     return `${month}/${day}/${year.slice(-2)}`;
 }
 
@@ -60,3 +60,4 @@ document.getElementById('date').value = "";
 
 
 addExpenseBtn.addEventListener('click', addExpense); 
+clearExpenses.addEventListener('click', )
